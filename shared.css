@@ -202,3 +202,7 @@ font-size: 1.5rem;
 .button:focus {
     outline: none;
 }
+
+.open {
+    display: block !important;
+}

@@ -4,19 +4,16 @@ var modal = document.querySelector(".modal");
 var selectPlanButtons = document.querySelectorAll(".plan button");
 var toggleButton = document.querySelector(".toggle-button");
 var mobileNav = document.querySelector(".mobile-nav");
-// console.dir(backdrop) // show the backdrop props that can be manipulated
-// console.dir(selectPlanButtons) // show the backdrop props that can be manipulated
-// backdrop.style.display = 'block';
 
 for (let index = 0; index < selectPlanButtons.length; index++) {
     selectPlanButtons[index].addEventListener('click', function() {
-        backdrop.style.display = 'block';
-        modal.style.display = 'block';
+        backdrop.classList.add('open');
+        modal.classList.add('open');
     });
 }
 
 backdrop.addEventListener('click', function() {
-    mobileNav.style.display = 'none';
+    mobileNav.classList.remove('open');
     closeModal();
 });
 
@@ -25,13 +22,13 @@ if (closeButton) {
 }
 
 function closeModal() {
-    backdrop.style.display = 'none';
+    backdrop.classList.remove('open');
     if (modal) {
-        modal.style.display = 'none';
+        modal.classList.remove('open');
     }
 }
 
 toggleButton.addEventListener('click', function() {
-    mobileNav.style.display = 'block';
-    backdrop.style.display = 'block';
+    mobileNav.classList.add('open');
+    backdrop.classList.add('open');
 });

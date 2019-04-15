@@ -25,12 +25,10 @@ body {
     background-color: #2ddf5c;
     padding: 0.6rem 1rem;
     top: 0;
-    z-index: 1;
-}
-
-.main-header > div {
-    display: inline-block;
-    vertical-align: middle;
+    z-index: 60;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .main-header__brand {
@@ -38,16 +36,15 @@ body {
     text-decoration: none;
     font-weight: bold;
     font-size: 1rem;
-    /* height: 22px; */
-    height: 2.5rem;
-    display: inline-block;
-    vertical-align: middle;
+    /* width: 22px; */
+   
 }
 
 .main-header__brand img {
     /* height: 100%; */
     /* width: 100%; */
-    display: none;
+    height: 2.5rem !important;
+    vertical-align: middle;
 }
 
 .toggle-button {
@@ -122,12 +119,15 @@ body {
     list-style: none;
     margin: 0;
     padding: 0;
-    text-align: center;
+    /* text-align: center; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .main-footer__link {
-    display: inline-block;
-    margin: 0 1rem;
+    /* display: inline-block; */
+    margin: 0.5rem 0;
 }
 
 .main-footer__link > a {
@@ -152,20 +152,25 @@ body {
   }
   
 .mobile-nav__items {
-width: 90%;
-height: 100%;
-list-style: none;
-margin: 10% auto;
-padding: 0;
-text-align: center;
+    width: 90%;
+    height: 100%;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
 }
 
 .mobile-nav__item {
-margin: 1rem 0;
+    margin: 1rem 0;
 }
 
 .mobile-nav__item a {
-font-size: 1.5rem;
+    font-size: 1.5rem;
 }
 
 .button {
@@ -205,32 +210,44 @@ main {
     margin-top: 3.5rem;
 }
 
+.main-nav__items {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+}
+
+.main-nav__item {
+    display: inline-block;
+    margin: 0 1rem;
+}
+
+
 @media (min-width: 40rem) {
     .toggle-button {
         display: none;
     }
     
     .main-nav {
-        display: inline-block;
+        /* display: inline-block;
         text-align: right;
         width: calc(100% - 122px);
-        vertical-align: middle;
-    }
-
-    .main-nav__items {
-        margin: 0;
-        padding: 0;
-        list-style: none;
-    }
-
-    .main-nav__item {
-        display: inline-block;
-        margin: 0 1rem;
+        vertical-align: middle; */
+        display: flex;
     }
 
     .main-header__brand img {
         height: 100%;
         /* width: 100%; */
         display: inline-block;
+    }
+
+    .main-footer__links {
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .main-footer__link {
+        margin: 0 1rem;
     }
 }

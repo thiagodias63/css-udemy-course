@@ -1,3 +1,8 @@
+:root {
+    --dark-green: #0e4f1f;
+    --highlight-color: #ff1b68;
+}
+
 * {
     box-sizing: border-box;
 }
@@ -5,18 +10,25 @@
 html {
     height: 100%;
 }
-
 body {
     font-family: 'Montserrat', sans-serif;
     margin: 0;
-    height: 100%;
-    display: grid;
-    grid-template-rows: 3.5rem auto fit-content(8rem);
-    grid-template-areas: "header"
-                         "main"
-                         "footer";
-    /* padding-top: 3.5rem; */
+    padding-top: 3.5rem;
 }
+
+@supports (display: grid) {
+    body {
+        margin: 0;
+        height: 100%;
+        display: grid;
+        grid-template-rows: 3.5rem auto fit-content(8rem);
+        grid-template-areas: "header"
+                            "main"
+                            "footer";
+        padding-top: 0;
+    }
+}
+
 
 .backdrop {
     position: fixed;
@@ -42,7 +54,7 @@ body {
 }
 
 .main-header__brand {
-    color: #0e4f1f;
+    color: var(--dark-green, #0e4f1f);
     text-decoration: none;
     font-weight: bold;
     font-size: 1rem;
@@ -91,7 +103,7 @@ body {
 .main-nav__item a,
 .mobile-nav__item a {
     text-decoration: none;
-    color: #0e4f1f;
+    color: var(--dark-green, #0e4f1f);
     font-weight: bold;
     padding: 0.1rem 0;
 }
@@ -105,7 +117,7 @@ body {
 .main-nav__item--cta a,
 .mobile-nav__item--cta a {
     color: white;
-    background-color: #ff1b68;
+    background-color: var(--highlight-color);
     padding: .5rem 1rem;
     border-radius: 8px;
 }
@@ -114,7 +126,7 @@ body {
 .main-nav__item--cta a:active,
 .mobile-nav__item--cta a:hover,
 .mobile-nav__item--cta a:active {
-    color: #ff1b68;
+    color: var(--highlight-color);
     background-color: white;
     border: none;
 }
@@ -152,6 +164,10 @@ body {
     color: #ccc;
 }
 
+.main-nav__item--cta {
+    animation: wiggle 400ms 3s 8 ease-out alternate;
+}
+
 .mobile-nav {
     display: none;
     position: fixed;
@@ -186,10 +202,10 @@ body {
 }
 
 .button {
-    background: #0e4f1f;
+    background: var(--dark-green, #0e4f1f);
     color: white;
     font: inherit;
-    border: 1.5px solid #0e4f1f;
+    border: 1.5px solid var(--dark-green, #0e4f1f);
     padding: .5rem;
     border-radius: .5rem;
     font-weight: bold;
@@ -199,7 +215,7 @@ body {
 .button:hover,
 .button:active {
     background: white;
-    color: #0e4f1f; 
+    color: var(--dark-green, #0e4f1f);
 }
 
 .button:focus {
@@ -214,7 +230,9 @@ body {
 }
 
 .open {
-    display: block !important;
+    display: block !important; 
+    opacity: 1 !important;
+    transform: translateY(0) !important;
 }
 
 main {
@@ -262,5 +280,17 @@ main {
 
     .main-footer__link {
         margin: 0 1rem;
+    }
+}
+
+@keyframes wiggle {
+    0% {
+        transform: rotateZ(0);
+    }
+    50% {
+        transform: rotateZ(-10deg)
+    }
+    100% {
+        transform: rotateZ(10deg);
     }
 }
